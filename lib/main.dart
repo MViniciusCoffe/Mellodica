@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'views/welcome_view.dart';
 
 void main() {
   runApp(const MellodicaApp());
@@ -12,13 +13,9 @@ class MellodicaApp extends StatelessWidget {
     return MaterialApp(
       title: 'Mellodica',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      home: WelcomeView(),
     );
   }
 }
