@@ -16,6 +16,10 @@ class _RegisterViewState extends State<RegisterView> {
       appBar: AppBar(
         title: Text("Cadastre-se"),
         backgroundColor: Colors.amber,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
 
       body: SafeArea(
