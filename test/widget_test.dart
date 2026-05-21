@@ -1,30 +1,62 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:mellodica/main.dart';
+import 'package:mellodica/controllers/register_controller.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MellodicaApp());
+  group('FieldsValidators', () {
+    final validators = FieldsValidators();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    group('validateEmail', () {
+      test('returns error when email is null', () {
+        expect(validators.validateEmail(null), 'Email é obrigatório');
+      });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      test('returns error when email is empty', () {
+        expect(validators.validateEmail(''), 'Email é obrigatório');
+      });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+      test('returns error for invalid email', () {
+        expect(validators.validateEmail('abc'), 'E-mail Inválido');
+      });
+
+      test('returns error for email without domain', () {
+        expect(validators.validateEmail('user@'), 'E-mail Inválido');
+      });
+
+      test('returns null for valid email', () {
+        expect(validators.validateEmail('user@example.com'), isNull);
+      });
+    });
+
+    group('validatePassword', () {
+      test('returns error when password is null', () {
+        expect(validators.validatePassword(null), 'Senha é obrigatória');
+      });
+
+      test('returns error when password is empty', () {
+        expect(validators.validatePassword(''), 'Senha é obrigatória');
+      });
+
+      test('returns error when password is too short', () {
+        expect(validators.validatePassword('abc'), 'Senha deve ter pelo menos 6 caracteres');
+      });
+
+      test('returns null for valid password', () {
+        expect(validators.validatePassword('123456'), isNull);
+      });
+    });
+
+    group('required (static)', () {
+      test('returns error when value is null', () {
+        expect(FieldsValidators.required(null, 'Nome'), 'Nome é obrigatório');
+      });
+
+      test('returns error when value is empty', () {
+        expect(FieldsValidators.required('', 'Nome'), 'Nome é obrigatório');
+      });
+
+      test('returns null when value is present', () {
+        expect(FieldsValidators.required('João', 'Nome'), isNull);
+      });
+    });
   });
 }
