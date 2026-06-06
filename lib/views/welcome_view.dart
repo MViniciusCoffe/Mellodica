@@ -19,7 +19,11 @@ class WelcomeView extends StatelessWidget {
               _buildTitle(),
               _buildSubtitle(),
               _buildSpacer(),
-              _buildStartButton(context),
+              _buildRegisterButton(context),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12), 
+                child: _buildLoginButton(context),
+              )
             ],
           ),
         ),
@@ -47,7 +51,7 @@ class WelcomeView extends StatelessWidget {
 
   Widget _buildSpacer() => const SizedBox(height: 40);
 
-  Widget _buildStartButton(BuildContext context) => ElevatedButton(
+  Widget _buildRegisterButton(BuildContext context) => ElevatedButton(
     onPressed: () => _controller.goToRegister(context),
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.deepPurple,
@@ -55,9 +59,26 @@ class WelcomeView extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
+      fixedSize: const Size(175, 50),
     ),
     child: const Text(
-      'Começar',
+      'Registrar',
+      style: TextStyle(fontSize: 18, color: Colors.white),
+    ),
+  );
+
+  Widget _buildLoginButton(BuildContext context) => ElevatedButton(
+    onPressed: () => _controller.goToLogin(context),
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.grey[600],
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12)
+      ),
+      fixedSize: const Size(175, 50),
+    ),
+    child: const Text(
+      'Entrar',
       style: TextStyle(fontSize: 18, color: Colors.white),
     ),
   );
