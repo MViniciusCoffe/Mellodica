@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'register_controller.dart';
+import 'fields_validators.dart';
 
 class LoginController {
   final formKey = GlobalKey<FormState>();

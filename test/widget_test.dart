@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mellodica/controllers/register_controller.dart';
+import 'package:mellodica/controllers/fields_validators.dart';
 
 void main() {
   group('FieldsValidators', () {
