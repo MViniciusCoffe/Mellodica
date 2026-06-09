@@ -53,14 +53,17 @@ class _RegisterViewState extends State<RegisterView> {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: Colors.deepPurple,
                     ),
-                    child: const Text('Registrar', style: TextStyle(fontSize: 16, color: Colors.white)),
-                  )
-                )
-              ]
-            )
-          )
-        )
-      )
+                    child: const Text(
+                      'Registrar',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 

@@ -21,9 +21,9 @@ class WelcomeView extends StatelessWidget {
               _buildSpacer(),
               _buildRegisterButton(context),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12), 
+                padding: const EdgeInsets.symmetric(vertical: 12),
                 child: _buildLoginButton(context),
-              )
+              ),
             ],
           ),
         ),
@@ -32,7 +32,7 @@ class WelcomeView extends StatelessWidget {
   }
 
   Widget _buildIcon() =>
-    const Icon(Icons.music_note, size: 80, color: Colors.deepPurple);
+      const Icon(Icons.music_note, size: 80, color: Colors.deepPurple);
 
   Widget _buildTitle() => const Text(
     'Mellodica',
@@ -56,9 +56,7 @@ class WelcomeView extends StatelessWidget {
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.deepPurple,
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       fixedSize: const Size(175, 50),
     ),
     child: const Text(
@@ -72,9 +70,7 @@ class WelcomeView extends StatelessWidget {
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.grey[600],
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12)
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       fixedSize: const Size(175, 50),
     ),
     child: const Text(

@@ -6,8 +6,10 @@ class RegisterController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  String? validateEmail(String? value) => FieldsValidators().validateEmail(value);
-  String? validatePassword(String? value) => FieldsValidators().validatePassword(value);
+  String? validateEmail(String? value) =>
+      FieldsValidators().validateEmail(value);
+  String? validatePassword(String? value) =>
+      FieldsValidators().validatePassword(value);
 
   void submit(BuildContext context) {
     if (formKey.currentState?.validate() ?? false) {

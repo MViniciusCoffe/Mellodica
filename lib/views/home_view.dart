@@ -12,10 +12,13 @@ class HomeView extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
           onPressed: () => Navigator.pop(context),
-        )
+        ),
       ),
       body: Center(
-        child: Text("Hello World!", style: TextStyle(fontSize: 24, color: Colors.deepPurple)),
+        child: Text(
+          "Hello World!",
+          style: TextStyle(fontSize: 24, color: Colors.deepPurple),
+        ),
       ),
     );
   }

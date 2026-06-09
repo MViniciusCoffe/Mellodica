@@ -37,7 +37,10 @@ void main() {
       });
 
       test('returns error when password is too short', () {
-        expect(validators.validatePassword('abc'), 'Senha deve ter pelo menos 6 caracteres');
+        expect(
+          validators.validatePassword('abc'),
+          'Senha deve ter pelo menos 6 caracteres',
+        );
       });
 
       test('returns null for valid password', () {
