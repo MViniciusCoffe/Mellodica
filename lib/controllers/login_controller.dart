@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'fields_validators.dart';
+import '../views/home_view.dart';
 
 class LoginController {
   final formKey = GlobalKey<FormState>();
@@ -19,6 +20,11 @@ class LoginController {
       );
 
       formKey.currentState?.reset();
+
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (context) => HomeView())
+      );
     }
   }
 
