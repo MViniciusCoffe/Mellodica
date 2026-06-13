@@ -5,11 +5,14 @@ class RegisterController {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final nameController = TextEditingController();
 
   String? validateEmail(String? value) =>
       FieldsValidators().validateEmail(value);
   String? validatePassword(String? value) =>
       FieldsValidators().validatePassword(value);
+  String? validateName(String? value) =>
+      FieldsValidators.required(value, "Nome");
 
   void submit(BuildContext context) {
     if (formKey.currentState?.validate() ?? false) {
@@ -27,5 +30,6 @@ class RegisterController {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    nameController.dispose();
   }
 }

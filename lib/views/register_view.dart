@@ -30,6 +30,14 @@ class _RegisterViewState extends State<RegisterView> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: _controller.nameController,
+                  validator: _controller.validateName,
+                  decoration: const InputDecoration(labelText: "Nome"),
+                  keyboardType: TextInputType.name,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
                   controller: _controller.emailController,
                   validator: _controller.validateEmail,
                   decoration: const InputDecoration(labelText: "Email"),
