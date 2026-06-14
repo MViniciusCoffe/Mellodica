@@ -9,10 +9,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home"),
         backgroundColor: Colors.white70,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
-          onPressed: () => Navigator.pop(context),
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Text(
