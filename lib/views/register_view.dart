@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../controllers/register_controller.dart';
+import '../models/instrument.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -29,12 +30,39 @@ class _RegisterViewState extends State<RegisterView> {
             key: _controller.formKey,
             child: Column(
               children: [
-                TextFormField(
-                  controller: _controller.nameController,
-                  validator: _controller.validateName,
-                  decoration: const InputDecoration(labelText: "Nome"),
-                  keyboardType: TextInputType.name,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: _controller.nameController,
+                        validator: _controller.validateName,
+                        decoration: const InputDecoration(labelText: "Nome"),
+                        keyboardType: TextInputType.name,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: DropdownButtonFormField<Instrument>(
+                        initialValue: _controller.instrument,
+                        validator: _controller.validateInstrument,
+                        decoration: const InputDecoration(
+                          labelText: "Selecione um Instrumento",
+                        ),
+                        items: Instrument.values
+                            .map(
+                              (i) => DropdownMenuItem(
+                                value: i,
+                                child: Text(i.label),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (value) {
+                          _controller.instrument = value;
+                        },
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
