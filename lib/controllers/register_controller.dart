@@ -38,6 +38,6 @@ class RegisterController {
     emailController.dispose();
     passwordController.dispose();
     nameController.dispose();
-
+    instrument = null;
   }
 }
