@@ -9,7 +9,6 @@ class RegisterController {
   final nameController = TextEditingController();
   Instrument? instrument;
 
-
   String? validateEmail(String? value) =>
       FieldsValidators().validateEmail(value);
   String? validatePassword(String? value) =>
@@ -25,7 +24,9 @@ class RegisterController {
     if (formKey.currentState?.validate() ?? false) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Cadastro realizado com sucesso! Instrumento: ${instrument?.label}"),
+          content: Text(
+            "Cadastro realizado com sucesso! Instrumento: ${instrument?.label}",
+          ),
           backgroundColor: Colors.green,
         ),
       );
