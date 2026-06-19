@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'fields_validators.dart';
 import '../models/instrument.dart';
+import '../views/login_view.dart';
 
 class RegisterController {
   final formKey = GlobalKey<FormState>();
@@ -40,5 +41,12 @@ class RegisterController {
     passwordController.dispose();
     nameController.dispose();
     instrument = null;
+  }
+
+  void goToLogin(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginView()),
+    );
   }
 }

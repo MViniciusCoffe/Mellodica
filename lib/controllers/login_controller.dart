@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'fields_validators.dart';
 import '../views/home_view.dart';
+import '../views/register_view.dart';
 
 class LoginController {
   final formKey = GlobalKey<FormState>();
@@ -33,5 +34,12 @@ class LoginController {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+  }
+
+  void goToRegister(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => RegisterView()),
+    );
   }
 }
