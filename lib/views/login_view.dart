@@ -60,7 +60,7 @@ class _LoginViewState extends State<LoginView> {
                         ),
                         child: const Text(
                           'Entrar',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
                     ),
@@ -80,7 +80,7 @@ class _LoginViewState extends State<LoginView> {
                         ),
                         child: const Text(
                           'Registre-se',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
                     ),

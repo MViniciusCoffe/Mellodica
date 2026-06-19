@@ -91,11 +91,14 @@ class _RegisterViewState extends State<RegisterView> {
                             horizontal: 40,
                             vertical: 16,
                           ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                           backgroundColor: Colors.deepPurple,
                         ),
                         child: const Text(
                           'Registrar',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
                     ),
@@ -108,11 +111,14 @@ class _RegisterViewState extends State<RegisterView> {
                             horizontal: 40,
                             vertical: 16,
                           ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                           backgroundColor: Colors.grey[500],
                         ),
                         child: const Text(
                           'Entrar',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
                     ),

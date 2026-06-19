@@ -68,7 +68,7 @@ class WelcomeView extends StatelessWidget {
   Widget _buildLoginButton(BuildContext context) => ElevatedButton(
     onPressed: () => _controller.goToLogin(context),
     style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.grey[600],
+      backgroundColor: Colors.grey[500],
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       fixedSize: const Size(175, 50),
