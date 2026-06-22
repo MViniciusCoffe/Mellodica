@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'fields_validators.dart';
 import '../models/instrument.dart';
 import '../views/login_view.dart';
+import '../views/home_view.dart';
 
 class RegisterController {
   final formKey = GlobalKey<FormState>();
@@ -33,6 +34,11 @@ class RegisterController {
       );
 
       formKey.currentState?.reset();
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeView()),
+      );
     }
   }
 
