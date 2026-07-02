@@ -3,6 +3,7 @@ import 'fields_validators.dart';
 import '../models/instrument.dart';
 import '../views/login_view.dart';
 import '../views/home_view.dart';
+import '../services/user_service.dart';
 
 class RegisterController {
   final formKey = GlobalKey<FormState>();
@@ -24,6 +25,23 @@ class RegisterController {
 
   void submit(BuildContext context) {
     if (formKey.currentState?.validate() ?? false) {
+      final result = InMemoryUserService().register(
+        nameController.text,
+        emailController.text,
+        passwordController.text,
+        instrument!,
+      );
+
+      if (!result.success) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(result.error ?? "Erro ao cadastrar usuário"),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(

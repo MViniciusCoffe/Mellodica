@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../services/user_service.dart';
+
+final user = InMemoryUserService().currentUser;
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -13,7 +16,7 @@ class HomeView extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          "Hello World!",
+          "Seja bem vindo, ${user?.name ?? "Usuário"}! Seu instrumento é: ${user?.instrument.label}",
           style: TextStyle(fontSize: 24, color: Colors.deepPurple),
         ),
       ),
