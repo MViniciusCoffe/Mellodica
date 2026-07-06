@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/user_service.dart';
 import 'profile_view.dart';
+import 'music_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -16,11 +17,20 @@ class HomeView extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            icon: Icon(Icons.person, color: Colors.deepPurple),
+            icon: const Icon(Icons.music_note, color: Colors.deepPurple),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfileView()),
+                MaterialPageRoute(builder: (context) => const MusicView()),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.person, color: Colors.deepPurple),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileView()),
               );
             },
           ),
