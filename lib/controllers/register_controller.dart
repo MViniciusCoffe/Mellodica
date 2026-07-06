@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'fields_validators.dart';
 import '../models/instrument.dart';
 import '../views/login_view.dart';
-import '../views/home_view.dart';
+import '../views/onboarding_view.dart';
 import '../services/user_service.dart';
 
 class RegisterController {
@@ -25,37 +25,36 @@ class RegisterController {
 
   void submit(BuildContext context) {
     if (formKey.currentState?.validate() ?? false) {
-      final result = InMemoryUserService().register(
-        nameController.text,
-        emailController.text,
-        passwordController.text,
-        instrument!,
-      );
-
-      if (!result.success) {
+      if (InMemoryUserService().isEmailTaken(emailController.text)) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(result.error ?? "Erro ao cadastrar usuário"),
+            content: const Text("Email já cadastrado"),
             backgroundColor: Colors.red,
           ),
         );
         return;
       }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            "Cadastro realizado com sucesso! Instrumento: ${instrument?.label}",
+      if (instrument == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text("Selecione um instrumento"),
+            backgroundColor: Colors.red,
           ),
-          backgroundColor: Colors.green,
-        ),
-      );
-
-      formKey.currentState?.reset();
+        );
+        return;
+      }
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeView()),
+        MaterialPageRoute(
+          builder: (context) => OnboardingView(
+            name: nameController.text,
+            email: emailController.text,
+            password: passwordController.text,
+            instrument: instrument!,
+          ),
+        ),
       );
     }
   }

@@ -8,7 +8,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = InMemoryUserService().currentUser;
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),

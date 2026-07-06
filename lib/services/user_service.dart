@@ -1,5 +1,6 @@
 import '../models/user.dart';
 import '../models/instrument.dart';
+import '../models/level.dart';
 
 class Result {
   final bool success;
@@ -19,18 +20,25 @@ class InMemoryUserService {
   User? _currentUser;
 
   User? get currentUser => _currentUser;
+  bool isEmailTaken(String email) => _users.containsKey(email);
 
   Result register(
     String name,
     String email,
     String password,
     Instrument instrument,
+    Level level,
   ) {
     if (_users.containsKey(email)) {
       return Result(success: false, error: 'Email já cadastrado');
     }
 
-    final user = User(name: name, email: email, instrument: instrument);
+    final user = User(
+      name: name,
+      email: email,
+      instrument: instrument,
+      level: level,
+    );
     _users[email] = user;
     _currentUser = user;
     return const Result(success: true);

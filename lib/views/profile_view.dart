@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import '../controllers/profile_controller.dart';
 import '../services/user_service.dart';
+import '../models/level.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -82,7 +83,10 @@ class _ProfileViewState extends State<ProfileView> {
               Row(
                 children: [
                   const Text("📊 Nível: "),
-                  Text("Iniciante", style: TextStyle(color: Colors.deepPurple)),
+                  Text(
+                    user?.level.label ?? "Sem nível",
+                    style: TextStyle(color: Colors.deepPurple),
+                  ),
                 ],
               ),
 

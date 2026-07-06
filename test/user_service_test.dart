@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mellodica/services/user_service.dart';
 import 'package:mellodica/models/instrument.dart';
+import 'package:mellodica/models/level.dart';
 
 void main() {
   late InMemoryUserService service;
@@ -17,6 +18,7 @@ void main() {
         'Marcus@dev.com',
         'password',
         Instrument.guitar,
+        Level.beginner,
       );
 
       expect(result.success, isTrue);
@@ -32,12 +34,14 @@ void main() {
         'Marcus@dev.com',
         'password',
         Instrument.guitar,
+        Level.beginner,
       );
       final result = service.register(
         'John Doe',
         'Marcus@dev.com',
         'password',
         Instrument.guitar,
+        Level.beginner,
       );
 
       expect(result.success, isFalse);
@@ -57,6 +61,7 @@ void main() {
         'Marcus@dev.com',
         'password',
         Instrument.guitar,
+        Level.beginner,
       );
       final result = service.login('Marcus@dev.com', 'password');
 
@@ -70,6 +75,7 @@ void main() {
         'Marcus@dev.com',
         'password',
         Instrument.guitar,
+        Level.beginner,
       );
       service.logout();
 
