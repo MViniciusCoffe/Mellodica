@@ -22,6 +22,7 @@ class InMemoryUserService {
   User? get currentUser => _currentUser;
   bool isEmailTaken(String email) => _users.containsKey(email);
 
+
   Result register(
     String name,
     String email,

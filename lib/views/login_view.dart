@@ -30,6 +30,7 @@ class _LoginViewState extends State<LoginView> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: _controller.emailController,
                   validator: _controller.validateEmail,
                   decoration: const InputDecoration(labelText: "Email"),
                   keyboardType: TextInputType.emailAddress,
@@ -37,6 +38,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  controller: _controller.passwordController,
                   validator: _controller.validatePassword,
                   decoration: const InputDecoration(labelText: "Senha"),
                   obscureText: true,

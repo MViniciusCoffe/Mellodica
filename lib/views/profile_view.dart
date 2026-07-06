@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import '../controllers/profile_controller.dart';
 import '../services/user_service.dart';
-import '../models/level.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
