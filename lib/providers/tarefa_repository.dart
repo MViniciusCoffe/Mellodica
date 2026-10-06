@@ -43,7 +43,7 @@ class TarefaRepository {
   }
 
   Future<void> update(Tarefa tarefa) {
-    return _collection.doc(tarefa.id).update(tarefa.toFirestore());
+    return _collection.doc(tarefa.id).update(tarefa.toFirestoreUpdate());
   }
 
   Future<void> delete(String tarefaId) {

@@ -59,6 +59,17 @@ class Tarefa {
     };
   }
 
+  Map<String, Object?> toFirestoreUpdate() {
+    return {
+      'titulo': titulo,
+      'descricao': descricao,
+      'concluida': concluida,
+      'dataConclusao': dataConclusao == null
+          ? null
+          : Timestamp.fromDate(dataConclusao!),
+    };
+  }
+
   Tarefa copyWith({String? titulo, String? descricao}) {
     return Tarefa(
       id: id,
