@@ -1,11 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final firebaseAuthProvider = Provider<FirebaseAuth>((ref) {
-  return FirebaseAuth.instance;
+final firebaseAuthProvider = Provider<auth.FirebaseAuth>((ref) {
+  return auth.FirebaseAuth.instance;
 });
 
-final authStateProvider = StreamProvider<User?>((ref) {
+final authStateProvider = StreamProvider<auth.User?>((ref) {
   return ref.watch(firebaseAuthProvider).authStateChanges();
 });
 
@@ -14,11 +14,11 @@ final authControllerProvider = Provider<AuthController>((ref) {
 });
 
 class AuthController {
-  final FirebaseAuth _auth;
+  final auth.FirebaseAuth _auth;
 
   AuthController(this._auth);
 
-  Future<UserCredential> login({
+  Future<auth.UserCredential> login({
     required String email,
     required String password,
   }) {
@@ -28,7 +28,7 @@ class AuthController {
     );
   }
 
-  Future<UserCredential> register({
+  Future<auth.UserCredential> register({
     required String email,
     required String password,
   }) {
