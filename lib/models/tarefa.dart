@@ -30,9 +30,7 @@ class Tarefa {
 
     final dataCriacao = data['dataCriacao'];
     if (dataCriacao is! Timestamp) {
-      throw StateError(
-        'Campo dataCriacao inválido na tarefa: ${snapshot.id}',
-      );
+      throw StateError('Campo dataCriacao inválido na tarefa: ${snapshot.id}');
     }
 
     final dataConclusao = data['dataConclusao'];
@@ -44,9 +42,7 @@ class Tarefa {
       descricao: data['descricao'] as String? ?? '',
       concluida: data['concluida'] as bool? ?? false,
       dataCriacao: dataCriacao.toDate(),
-      dataConclusao: dataConclusao is Timestamp
-          ? dataConclusao.toDate()
-          : null,
+      dataConclusao: dataConclusao is Timestamp ? dataConclusao.toDate() : null,
     );
   }
 
@@ -63,20 +59,39 @@ class Tarefa {
     };
   }
 
-  Tarefa copyWith({
-    String? titulo,
-    String? descricao,
-    bool? concluida,
-    DateTime? dataConclusao,
-  }) {
+  Tarefa copyWith({String? titulo, String? descricao}) {
     return Tarefa(
       id: id,
       usuarioId: usuarioId,
       titulo: titulo ?? this.titulo,
       descricao: descricao ?? this.descricao,
-      concluida: concluida ?? this.concluida,
+      concluida: concluida,
       dataCriacao: dataCriacao,
-      dataConclusao: dataConclusao ?? this.dataConclusao,
+      dataConclusao: dataConclusao,
+    );
+  }
+
+  Tarefa concluir(DateTime quando) {
+    return Tarefa(
+      id: id,
+      usuarioId: usuarioId,
+      titulo: titulo,
+      descricao: descricao,
+      concluida: true,
+      dataCriacao: dataCriacao,
+      dataConclusao: quando,
+    );
+  }
+
+  Tarefa reabrir() {
+    return Tarefa(
+      id: id,
+      usuarioId: usuarioId,
+      titulo: titulo,
+      descricao: descricao,
+      concluida: false,
+      dataCriacao: dataCriacao,
+      dataConclusao: null,
     );
   }
 
